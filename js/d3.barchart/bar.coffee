@@ -64,7 +64,8 @@ class d3.chart.Bar extends d3.chart.BaseChart
             .attr "width", bar_width
             .attr "height", (d) -> height - y_scale y_value d
 
+        console.log bars.data()
+
         bars
             .exit()
-            .transition()
             .remove()

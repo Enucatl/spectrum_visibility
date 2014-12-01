@@ -3,40 +3,52 @@
 
 $ ->
     factor = 0.618
-    width = $("input#spectrum-plot").width()
+    width = $("#spectrum-plot").width()
     height = factor * width
     plot = new d3.chart.Bar()
         .width width
         .height height
         .margin
-            left: 0
+            left: 0.10 * width
             top: 0
-            bottom: 0
-            right: 0
+            bottom: 0.10 * height
+            right: 0.05 * width
         .x_value (d) -> d.energy
         .y_value (d) -> d.photons
     axes = new d3.chart.Axes()
-        .x_scale plot.x_scale()
-        .y_scale plot.y_scale()
+    axes.x_scale plot.x_scale()
+    axes.y_scale plot.y_scale()
 
     update_plot = (spectrum_file) ->
         d3.csv spectrum_file, (error, json) ->
             if error?
                 console.warn error
                 return
+            
+            total_photons = json.reduce((total, datum) ->
+                    total + parseFloat(datum.photons)
+                , 0)
+
+            data = json.map (d) ->
+                energy: parseInt(d.energy)
+                photons: parseFloat(d.photons) / total_photons
+
             plot.x_scale()
-                .domain d3.extent json, plot.x_value()
+                .domain d3.extent data, plot.x_value()
             plot.y_scale()
-                .domain d3.extent json, plot.y_value()
+                .domain d3.extent data, plot.y_value()
 
             d3.select "#spectrum-plot"
-                .datum json
+                .datum data
                 .call plot.draw
+
+            console.log axes.x_scale().domain()
+            console.log axes.x_scale().range()
 
             d3.select "#spectrum-plot"
                 .select "svg"
                 .select "g"
-                .datum 1
+                .data [1]
                 .call axes.draw
 
     $("input#select-spectrum").change ->
