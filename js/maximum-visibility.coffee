@@ -42,10 +42,10 @@ $ ->
                         Math.sin(
                             m * Math.PI / 2 * design_energy / d.energy
                         )
-                    ) / total_photons else 0
+                    ) * d.photons / total_photons else 0
                 visibility = with_visibility.reduce(
                     (total, datum) ->
-                        total + datum.visibility * datum.photons
+                        total + datum.visibility
                     , 0) * 100
 
                 plot.x_scale()
@@ -59,6 +59,10 @@ $ ->
 
                 console.log axes.x_scale().domain()
                 console.log axes.x_scale().range()
+
+                axes
+                    .y_axis()
+                    .tickFormat d3.format ".1%"
 
                 d3.select "#visibility-plot"
                     .select "svg"
