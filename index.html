@@ -5,13 +5,100 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/select2.css">
+    <link rel="stylesheet" href="css/select2-bootstrap.css">
+    <link rel="stylesheet" href="css/overrides.css">
+    <!--load mathjax-->
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
+            <h2>Settings</h2>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="talbot_order"
+                        class="col-md-2 col-xs-4
+                        control-label">Talbot order</label>
+                    <div class="col-md-1 col-xs-4">
+                        <input
+                        class="form-control"
+                        name="talbot_order"
+                        id="talbot_order"
+                        type="number"
+                        min=1 max=7
+                        value=1 step=2>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="design_energy"
+                        class="col-md-2 col-xs-4 control-label">
+                        design energy (keV)
+                    </label>
+                    <div class="col-md-1 col-xs-4">
+                        <input
+                        class="form-control"
+                        name="design_energy"
+                        id="design_energy"
+                        type="number"
+                        min=10 max=200
+                        value=120 step=1>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="spectrum"
+                        class="col-md-2 col-xs-4 control-label">
+                        spectrum
+                    </label>
+                    <div class="col-md-4 col-xs-8">
+                        <input
+                        name="spectrum"
+                        id="select-spectrum"
+                        class="form-control"
+                        type="hidden"
+                        value="data/U210 - 160kVp 45deg 1000Air 0Be 0Al 0Cu 0Sn 0W 0Ta 0Wa.csv"
+                        >
+                    </div>
+                </div>
+            </form>
             <h2>Visibility</h2>
             <div id="max-vis"></div>
+            <h3>How is the visibility calculated?</h3>
+            <p>
+                The maximum polychromatic visibility is calculated according
+                to the paper of Thüring and Stampanoni, 
+                <a
+                    href="http://rsta.royalsocietypublishing.org/content/372/2010/20130027">
+                    <i>Performance and optimization of X-ray grating
+                        interferometry</i></a>, Phil. Trans. A, 2014.
+            </p>
+            <p>
+                The formula for the visibility at an energy \( \mathcal{E}
+                \) with a \(\pi\) shift in the phase grating, a design
+                energy \(\mathcal{E_0}\) and a Talbot order \(m\) is
+                \[
+                v(\mathcal{E}) = \frac{2}{\pi} \left| \sin^2
+                \Big(\frac{\pi}{2}\frac{\mathcal{E_0}}{\mathcal{E}}\Big) 
+                \sin
+                \Big(\frac{m\pi}{2}\frac{\mathcal{E_0}}{\mathcal{E}}\Big) 
+                \right|
+                \]
+            </p>
+            <p>
+                The maximum polychromatic visibility is then calculated by
+                summing the contributions coming from the different
+                wavelengths in the spectrum
+                \[
+                v = \sum_\mathcal{E} w(\mathcal{E})v(\mathcal{E})
+                \]
+            </p>
+            <p>
+                \(w(\mathcal{E})\) is the distribution of the number of
+                photons as a function of energy.
+            </p>
         </div>
     </div>
     <div class="footer">
@@ -27,5 +114,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/select-spectrum.js"></script>
     <script src="js/maximum-visibility.js"></script>
+    <script src="js/on-change.js"></script>
 </body>
