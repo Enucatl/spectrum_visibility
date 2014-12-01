@@ -65,6 +65,10 @@
                 </div>
             </form>
             <h3>Maximum visibility: <span class="label label-info" id="max-vis"></span></h3> 
+            <h3>Spectrum</h3>
+            <div class="col-md-8 col-xs-12" id="spectrum-plot"></div>
+            <h3>How do the different energies contribute to the visibility?</h3>
+            <div class="col-md-8 col-xs-12" id="visibility-plot"></div>
             <h3>How is the maximum visibility calculated?</h3>
             <p>
                 The maximum polychromatic visibility is calculated according
@@ -74,7 +78,7 @@
                     <i>Performance and optimization of X-ray grating
                         interferometry</i></a>, Phil. Trans. A, 2014.
             </p>
-            <p>
+            <p id="polychromatic-formula">
                 The formula for the visibility at an energy \( \mathcal{E}
                 \) with a \(\pi\) shift in the phase grating, a design
                 energy \(\mathcal{E_0}\) and a Talbot order \(m\) is
@@ -118,6 +122,7 @@
     <script src="js/d3.barchart/barchart.js"></script>
     <script src="js/select2.min.js"></script>
     <script src="js/select-spectrum.js"></script>
+    <script src="js/plot-spectrum.js"></script>
     <script src="js/maximum-visibility.js"></script>
     <script src="js/on-change.js"></script>
 </body>
