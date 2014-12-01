@@ -30,4 +30,4 @@ $ ->
                     (total, datum) ->
                         total + datum.visibility * datum.photons / total_photons
                     , 0) * 100
-                $("#max-vis").text "maximum visibility with the above settings: #{visibility.toFixed(1)} %"
+                $("#max-vis").text "#{visibility.toFixed(1)} %"
