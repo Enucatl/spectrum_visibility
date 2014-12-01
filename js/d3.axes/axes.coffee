@@ -3,6 +3,12 @@
 
 class d3.chart.Axes extends d3.chart.BaseChart
 
+    constructor: ->
+        @accessors = {} unless @accessors?
+        @accessors.x_axis = d3.svg.axis()
+        @accessors.y_axis = d3.svg.axis()
+        super
+
     _draw: (element, data, i) ->
         #
         # element should be the big group inside the svg already translated
@@ -11,12 +17,14 @@ class d3.chart.Axes extends d3.chart.BaseChart
         # convenience accessors
         x_scale = @x_scale()
         y_scale = @y_scale()
+        x_axis = @x_axis()
+        y_axis = @y_axis()
 
-        x_axis = d3.svg.axis()
+        x_axis
             .scale x_scale
             .orient "bottom"
         
-        y_axis = d3.svg.axis()
+        y_axis 
             .scale y_scale
             .orient "left"
 
