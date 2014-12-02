@@ -56,10 +56,28 @@ class d3.chart.Axes extends d3.chart.BaseChart
             .append "text"
             .classed "label", true
             .attr "x", x_scale.range()[1]
-            .attr "dy", "1em"
+            .attr "dy", "2.49em"
             .style "text-anchor", "end"
             .text x_title
         
         x_label
+            .exit()
+            .remove()
+
+        y_label = d3.select element
+            .select ".y.axis"
+            .selectAll "text.label"
+            .data [data]
+
+        y_label
+            .enter()
+            .append "text"
+            .classed "label", true
+            .attr "transform", "rotate(-90)"
+            .style "text-anchor", "end"
+            .attr "dy", "2.49em"
+            .text y_title
+        
+        y_label
             .exit()
             .remove()
