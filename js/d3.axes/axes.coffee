@@ -78,7 +78,7 @@ class d3.chart.Axes extends d3.chart.BaseChart
             .classed "label", true
             .attr "transform", "rotate(-90)"
             .style "text-anchor", "end"
-            .attr "dy", "2.49em"
+            .attr "dy", "1em"
             .text y_title
         
         y_label
