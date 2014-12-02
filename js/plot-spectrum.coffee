@@ -52,7 +52,7 @@ $ ->
             d3.select "#spectrum-plot"
                 .select "svg"
                 .select "g"
-                .data [1]
+                .datum 1
                 .call axes.draw
 
     $("input#select-spectrum").change ->
