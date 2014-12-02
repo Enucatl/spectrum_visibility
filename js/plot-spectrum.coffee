@@ -17,7 +17,6 @@ $ ->
         .y_value (d) -> d.photons
     axes = new d3.chart.Axes()
         .x_title "energy (keV)"
-        .y_title "photon density / 1 (keV)"
     axes.x_scale plot.x_scale()
     axes.y_scale plot.y_scale()
 
@@ -32,7 +31,7 @@ $ ->
                 , 0)
 
             data = json.map (d) ->
-                energy: parseInt(d.energy)
+                energy: parseFloat(d.energy)
                 photons: parseFloat(d.photons) / total_photons
 
             plot.x_scale()
@@ -47,7 +46,10 @@ $ ->
             console.log axes.x_scale().domain()
             console.log axes.x_scale().range()
 
+            energy_interval = data[1].energy - data[0].energy
+
             axes
+                .y_title "photon density / #{energy_interval.toFixed(1)} (keV)"
                 .y_axis()
                 .tickFormat d3.format ".1%"
 

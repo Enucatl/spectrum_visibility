@@ -17,14 +17,13 @@ $ ->
         .y_value (d) -> d.visibility
     axes = new d3.chart.Axes()
         .x_title "energy (keV)"
-        .y_title "contribution to visibility / 1 (keV)"
     axes.x_scale plot.x_scale()
     axes.y_scale plot.y_scale()
 
     window.maximum_visibility = (spectrum_file, design_energy, m) ->
         d3.csv spectrum_file,
             (d) ->
-                energy: parseInt(d.energy)
+                energy: parseFloat(d.energy)
                 photons: parseFloat(d.photons)
             (error, data) ->
                 if error?
@@ -50,10 +49,13 @@ $ ->
                         total + datum.visibility
                     , 0) * 100
 
+                energy_interval = with_visibility[1].energy - with_visibility[0].energy
                 plot.x_scale()
                     .domain d3.extent with_visibility, plot.x_value()
                 plot.y_scale()
                     .domain d3.extent with_visibility, plot.y_value()
+
+                axes.y_title "contribution to visibility / #{energy_interval.toFixed(1)} (keV)"
 
                 d3.select "#visibility-plot"
                     .datum with_visibility
