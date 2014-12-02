@@ -61,9 +61,6 @@ $ ->
                     .datum with_visibility
                     .call plot.draw
 
-                console.log axes.x_scale().domain()
-                console.log axes.x_scale().range()
-
                 axes
                     .y_axis()
                     .tickFormat d3.format ".1%"

@@ -43,9 +43,6 @@ $ ->
                 .datum data
                 .call plot.draw
 
-            console.log axes.x_scale().domain()
-            console.log axes.x_scale().range()
-
             energy_interval = data[1].energy - data[0].energy
 
             axes
