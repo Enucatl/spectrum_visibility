@@ -1,19 +1,19 @@
 [
     {
-    "text": "Philips 26 kVp",
-    "id": "data/caro.26kVp.csv"
+    "text": "Philips 26 kVp incl. collimator, paddle and support",
+    "id": "data/Philips.collimator.paddle.support.26kVp.csv"
 },{
-    "text": "Philips 29 kVp",
-    "id": "data/caro.29kVp.csv"
+    "text": "Philips 29 kVp incl. collimator, paddle and support",
+    "id": "data/Philips.collimator.paddle.support.29kVp.csv"
 },{
-    "text": "Philips 32 kVp",
-    "id": "data/caro.32kVp.csv"
+    "text": "Philips 32 kVp incl. collimator, paddle and support",
+    "id": "data/Philips.collimator.paddle.support.32kVp.csv"
 },{
-    "text": "Philips 35 kVp",
-    "id": "data/caro.35kVp.csv"
+    "text": "Philips 35 kVp incl. collimator, paddle and support",
+    "id": "data/Philips.collimator.paddle.support.35kVp.csv"
 },{
-    "text": "Philips 38 kVp",
-    "id": "data/caro.38kVp.csv"
+    "text": "Philips 38 kVp incl. collimator, paddle and support",
+    "id": "data/Philips.collimator.paddle.support.38kVp.csv"
 },{
     "text": "Comet MXR 160HP/11 20 kVp",
     "id": "data/U210 - 20kVp 45deg 1000Air 0Be 0Al 0Cu 0Sn 0W 0Ta 0Wa.csv"
@@ -35,5 +35,21 @@
 },{
     "text": "Comet MXR 160HP/11 160 kVp",
     "id": "data/U210 - 160kVp 45deg 1000Air 0Be 0Al 0Cu 0Sn 0W 0Ta 0Wa.csv"
+},
+    {
+    "text": "Philips 26 kVp",
+    "id": "data/caro.26kVp.csv"
+},{
+    "text": "Philips 29 kVp",
+    "id": "data/caro.29kVp.csv"
+},{
+    "text": "Philips 32 kVp",
+    "id": "data/caro.32kVp.csv"
+},{
+    "text": "Philips 35 kVp",
+    "id": "data/caro.35kVp.csv"
+},{
+    "text": "Philips 38 kVp",
+    "id": "data/caro.38kVp.csv"
 }
 ]
