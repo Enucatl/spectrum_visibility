@@ -4,6 +4,8 @@ class d3.chart.Axes extends d3.chart.BaseChart
         @accessors = {} unless @accessors?
         @accessors.x_axis = d3.svg.axis()
         @accessors.y_axis = d3.svg.axis()
+        @accessors.x_title = "x"
+        @accessors.y_title = "y"
         super
 
     _draw: (element, data, i) ->
@@ -16,6 +18,8 @@ class d3.chart.Axes extends d3.chart.BaseChart
         y_scale = @y_scale()
         x_axis = @x_axis()
         y_axis = @y_axis()
+        x_title = @x_title()
+        y_title = @y_title()
 
         x_axis
             .scale x_scale
@@ -41,3 +45,21 @@ class d3.chart.Axes extends d3.chart.BaseChart
             .classed "x axis", true
             .attr "transform", "translate(0, #{y_scale.range()[0]})"
             .call x_axis
+
+        x_label = d3.select element
+            .select ".x.axis"
+            .selectAll "text.label"
+            .data [data]
+
+        x_label
+            .enter()
+            .append "text"
+            .classed "label", true
+            .attr "x", x_scale.range()[1]
+            .attr "dy", "1em"
+            .style "text-anchor", "end"
+            .text x_title
+        
+        x_label
+            .exit()
+            .remove()
