@@ -32,20 +32,28 @@ class d3.chart.Axes extends d3.chart.BaseChart
             .scale y_scale
             .orient "left"
 
-        d3.select element
+        y_group = d3.select element
             .selectAll ".y.axis"
             .data [data]
+
+        y_group
             .enter()
             .append "g"
             .classed "y axis", true
+
+        y_group
             .call y_axis
 
-        d3.select element
+        x_group = d3.select element
             .selectAll ".x.axis"
             .data [data]
+
+        x_group
             .enter()
             .append "g"
             .classed "x axis", true
+
+        x_group
             .attr "transform", "translate(0, #{y_scale.range()[0]})"
             .call x_axis
 
@@ -58,6 +66,8 @@ class d3.chart.Axes extends d3.chart.BaseChart
             .enter()
             .append "text"
             .classed "label", true
+
+        x_label
             .attr "x", x_scale.range()[1]
             .attr "dy", "2.49em"
             .style "text-anchor", "end"
@@ -76,11 +86,21 @@ class d3.chart.Axes extends d3.chart.BaseChart
             .enter()
             .append "text"
             .classed "label", true
+
+        y_label
             .attr "transform", "rotate(-90)"
             .style "text-anchor", "end"
             .attr "dy", "1em"
             .text y_title
         
         y_label
+            .exit()
+            .remove()
+
+        x_group
+            .exit()
+            .remove()
+
+        y_group
             .exit()
             .remove()
