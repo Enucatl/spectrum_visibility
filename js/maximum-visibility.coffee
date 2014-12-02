@@ -11,7 +11,7 @@ $ ->
         .margin
             left: 0.10 * width
             top: 0
-            bottom: 0.10 * height
+            bottom: 0.15 * height
             right: 0.05 * width
         .x_value (d) -> d.energy
         .y_value (d) -> d.visibility
