@@ -16,6 +16,8 @@ $ ->
         .x_value (d) -> d.energy
         .y_value (d) -> d.photons
     axes = new d3.chart.Axes()
+        .x_title "energy (keV)"
+        .y_title "photon density / 1 (keV)"
     axes.x_scale plot.x_scale()
     axes.y_scale plot.y_scale()
 

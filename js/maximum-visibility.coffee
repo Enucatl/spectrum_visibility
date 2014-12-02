@@ -16,6 +16,8 @@ $ ->
         .x_value (d) -> d.energy
         .y_value (d) -> d.visibility
     axes = new d3.chart.Axes()
+        .x_title "energy (keV)"
+        .y_title "contribution to visibility / 1 (keV)"
     axes.x_scale plot.x_scale()
     axes.y_scale plot.y_scale()
 
