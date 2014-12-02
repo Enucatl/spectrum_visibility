@@ -65,64 +65,64 @@
                     </div>
                 </div>
             </form>
-            <div class="row">
-                <h3>Maximum visibility: <span class="label label-info" id="max-vis"></span></h3> 
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-xs-12">
-                    <h3>Spectrum \(w(\mathcal{E})\)</h3>
+        </div>
+        <div class="row">
+            <h3>Maximum visibility: <span class="label label-info" id="max-vis"></span></h3> 
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <h3>Spectrum \(w(\mathcal{E})\)</h3>
                 <div class="col-md-12" id="spectrum-plot"></div>
-                </div>
-                <div class="col-md-6 col-xs-12">
+            </div>
+            <div class="col-md-6 col-xs-12">
                 <h3>Visibility by energy
                     \(v(\mathcal{E})w(\mathcal{E})\)</h3>
                 <div class="col-md-12" id="visibility-plot"></div>
-                </div>
             </div>
-            <div class="row">
-                <h3>How is the maximum visibility calculated?</h3>
-                <p>
-                    The <i>Talbot order</i> \(m\) is defined by the
-                    self-image of the structure of the phase
-                    grating \(G_1\) with period \(p_1\) at the Lohmann
-                    distances \(d_m\)
-                    \[
-                    d_m = m \frac{p_1^2}{8 \lambda} \quad m \text{ odd}
-                    \]
-                </p>
-                <p>
-                    The maximum polychromatic visibility is calculated according
-                    to the paper by Thüring and Stampanoni, 
-                    <a
-                        href="http://rsta.royalsocietypublishing.org/content/372/2010/20130027">
-                        <i>Performance and optimization of X-ray grating
-                            interferometry</i></a>, Phil. Trans. A, 2014.
-                </p>
-                <p id="polychromatic-formula">
-                    The formula for the visibility at an energy \( \mathcal{E}
-                    \) with a \(\pi\) shift in the phase grating, a design
-                    energy \(\mathcal{E_0}\) and a Talbot order \(m\) is
-                    \[
-                    v(\mathcal{E}) = \frac{2}{\pi} \left\lvert \sin^2
-                    \Big(\frac{\pi}{2}\frac{\mathcal{E_0}}{\mathcal{E}}\Big) 
-                    \sin
-                    \Big(\frac{m\pi}{2}\frac{\mathcal{E_0}}{\mathcal{E}}\Big) 
-                    \right\rvert
-                    \]
-                </p>
-                <p>
-                    The maximum polychromatic visibility is then calculated by
-                    summing the contributions coming from the different
-                    wavelengths in the spectrum
-                    \[
-                    v = \sum_\mathcal{E} w(\mathcal{E})v(\mathcal{E})
-                    \]
-                </p>
-                <p>
-                    \(w(\mathcal{E})\) is the distribution of the number of
-                    photons as a function of energy.
-                </p>
-            </div>
+        </div>
+        <div class="row">
+            <h3>How is the maximum visibility calculated?</h3>
+            <p>
+                The <i>Talbot order</i> \(m\) is defined by the
+                self-image of the structure of the phase
+                grating \(G_1\) with period \(p_1\) at the Lohmann
+                distances \(d_m\)
+                \[
+                d_m = m \frac{p_1^2}{8 \lambda} \quad m \text{ odd}
+                \]
+            </p>
+            <p>
+                The maximum polychromatic visibility is calculated according
+                to the paper by Thüring and Stampanoni, 
+                <a
+                    href="http://rsta.royalsocietypublishing.org/content/372/2010/20130027">
+                    <i>Performance and optimization of X-ray grating
+                        interferometry</i></a>, Phil. Trans. A, 2014.
+            </p>
+            <p id="polychromatic-formula">
+                The formula for the visibility at an energy \( \mathcal{E}
+                \) with a \(\pi\) shift in the phase grating, a design
+                energy \(\mathcal{E_0}\) and a Talbot order \(m\) is
+                \[
+                v(\mathcal{E}) = \frac{2}{\pi} \left\lvert \sin^2
+                \Big(\frac{\pi}{2}\frac{\mathcal{E_0}}{\mathcal{E}}\Big) 
+                \sin
+                \Big(\frac{m\pi}{2}\frac{\mathcal{E_0}}{\mathcal{E}}\Big) 
+                \right\rvert
+                \]
+            </p>
+            <p>
+                The maximum polychromatic visibility is then calculated by
+                summing the contributions coming from the different
+                wavelengths in the spectrum
+                \[
+                v = \sum_\mathcal{E} w(\mathcal{E})v(\mathcal{E})
+                \]
+            </p>
+            <p>
+                \(w(\mathcal{E})\) is the distribution of the number of
+                photons as a function of energy.
+            </p>
         </div>
     </div>
     <div class="footer">
