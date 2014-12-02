@@ -59,6 +59,8 @@ class d3.chart.Bar extends d3.chart.BaseChart
             .enter()
             .append "rect"
             .classed "bar", true
+
+        bars
             .attr "x", (d) -> x_scale x_value d
             .attr "y", (d) -> y_scale y_value d
             .attr "width", bar_width
