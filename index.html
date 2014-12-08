@@ -28,7 +28,7 @@
                         <input
                         class="form-control"
                         name="talbot_order"
-                        id="talbot_order"
+                        id="talbot-order"
                         type="number"
                         min=1 max=7
                         value=1 step=2>
@@ -43,7 +43,7 @@
                         <input
                         class="form-control"
                         name="design_energy"
-                        id="design_energy"
+                        id="design-energy"
                         type="number"
                         min=10 max=200
                         value=120 step=1>
@@ -78,6 +78,26 @@
                 <h3>Visibility by energy
                     \(v(\mathcal{E})w(\mathcal{E})\)</h3>
                 <div class="col-md-12" id="visibility-plot"></div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Alternative optimizations</h3> 
+            <div class="col-md-6 col-xs-12">
+                <h3>Design energy</h3>
+                <div class="col-md-12" id="design-energy-plot"></div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <h3>Talbot order</h3>
+                <div class="col-md-offset-3 col-md-6 col-xs-12">
+                    <table class="table" id="talbot-order-table">
+                        <thead>
+                            <tr><th class="text-center">\(m\)</th><th
+                                    class="text-center">visibility (%)</th></tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -148,7 +168,10 @@
     <script src="js/d3.barchart/bar.js"></script>
     <script src="js/select2.min.js"></script>
     <script src="js/select-spectrum.js"></script>
+    <script src="js/polychromatic-visibility.js"></script>
     <script src="js/plot-spectrum.js"></script>
     <script src="js/maximum-visibility.js"></script>
+    <script src="js/design-energy.js"></script>
+    <script src="js/talbot-order.js"></script>
     <script src="js/on-change.js"></script>
 </body>

@@ -36,14 +36,7 @@ $ ->
                 with_visibility = data.map (d) ->
                     energy: d.energy
                     photons: d.photons
-                    visibility: if d.photons then 2 / Math.PI * Math.abs(
-                        Math.pow(Math.sin(
-                            Math.PI / 2 * design_energy / d.energy
-                        ), 2) *
-                        Math.sin(
-                            m * Math.PI / 2 * design_energy / d.energy
-                        )
-                    ) * d.photons / total_photons else 0
+                    visibility: if d.photons then window.polychromatic_visibility(m, design_energy, d.energy) * d.photons / total_photons else 0
                 visibility = with_visibility.reduce(
                     (total, datum) ->
                         total + datum.visibility
