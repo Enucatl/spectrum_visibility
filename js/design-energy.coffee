@@ -69,6 +69,7 @@ $ ->
         spectrum_file = $("input#select-spectrum").val()
         talbot_order = +$("input#talbot-order").val()
         design_energy_plot spectrum_file, talbot_order 
+        $("#talbot-order-title").text talbot_order
     $("input#select-spectrum").change update_design_energy
     $("input#talbot-order").change update_design_energy
     update_design_energy()
