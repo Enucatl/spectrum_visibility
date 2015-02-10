@@ -48,6 +48,11 @@ $ ->
                 plot.y_scale()
                     .domain d3.extent with_visibility, plot.y_value()
 
+                average_energy = with_visibility.reduce(
+                    (total, datum) ->
+                        total + datum.visibility * datum.energy
+                    , 0) / visibility * 100
+
                 axes.y_title "contribution to visibility / #{energy_interval.toFixed(1)} (keV)"
 
                 d3.select "#visibility-plot"
@@ -65,3 +70,4 @@ $ ->
                     .call axes.draw
 
                 $("#max-vis").text "#{visibility.toFixed(1)} %"
+                $("#energy-average-visibility").text "#{average_energy.toFixed(1)} (keV)"
