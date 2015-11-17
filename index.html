@@ -22,7 +22,7 @@
             <form class="form-horizontal" role="form">
                 <div class="form-group">
                     <label for="talbot_order"
-                        class="col-md-2 col-xs-4
+                        class="col-md-3 col-xs-5
                         control-label">Talbot order</label>
                     <div class="col-md-1 col-xs-4">
                         <input
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label for="design_energy"
-                        class="col-md-2 col-xs-4 control-label">
+                        class="col-md-3 col-xs-5 control-label">
                         design energy (keV)
                     </label>
                     <div class="col-md-1 col-xs-4">
@@ -50,8 +50,38 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="absorption_thickness"
+                        class="col-md-3 col-xs-5 control-label">
+                        absorption thickness (&micro;m)
+                    </label>
+                    <div class="col-md-1 col-xs-4">
+                        <input
+                        class="form-control"
+                        name="absorption_thickness"
+                        id="absorption-thickness"
+                        type="number"
+                        min=10 max=400
+                        value=100 step=1>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grating_period"
+                        class="col-md-3 col-xs-5 control-label">
+                        grating period (&micro;m)
+                    </label>
+                    <div class="col-md-1 col-xs-4">
+                        <input
+                        class="form-control"
+                        name="grating_period"
+                        id="grating-period"
+                        type="number"
+                        min=1 max=20
+                        value=5 step=0.1>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="spectrum"
-                        class="col-md-2 col-xs-4 control-label">
+                        class="col-md-3 col-xs-5 control-label">
                         spectrum
                     </label>
                     <div class="col-md-4 col-xs-8">
@@ -65,6 +95,28 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="row">
+            <h3>Resulting parameters</h3>
+            <div class="col-md-3 col-xs-5 control-label">
+                intergrating distance (cm)
+            </div>
+            <span class="label label-info" id="intergrating-distance">
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xs-5 control-label">
+                \(\pi\) shifting thickness of gold (&micro;m)
+            </div>
+            <span class="label label-info" id="pishift-au">
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xs-5 control-label">
+                absorption efficiency
+            </div>
+            <span class="label label-info" id="absorption-efficiency">
+            </span>
         </div>
         <div class="row">
             <h3>Maximum visibility: <span class="label label-info" id="max-vis"></span></h3> 
@@ -175,5 +227,6 @@
     <script src="js/maximum-visibility.js"></script>
     <script src="js/design-energy.js"></script>
     <script src="js/talbot-order.js"></script>
+    <script src="js/compute-parameters.js"></script>
     <script src="js/on-change.js"></script>
 </body>
